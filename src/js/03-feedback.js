@@ -27,9 +27,16 @@ form.addEventListener('input', throttle(onInput, 500));
 function onSubmit(event) {
   event.preventDefault();
 
+  const emailValue = emailInput.value.trim();
+  const messageValue = messageInput.value.trim();
+
+  if (!emailValue || !messageValue) {
+    return;
+  }
+
   const formData = {
-    email: emailInput.value,
-    message: messageInput.value,
+    email: emailValue,
+    message: messageValue,
   };
 
   console.log(formData);
